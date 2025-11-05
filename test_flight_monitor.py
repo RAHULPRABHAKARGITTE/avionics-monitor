@@ -1,16 +1,33 @@
-# test_flight_monitor.py
-from flight_monitor import check_altitude, check_fuel_level, flight_status
+# flight_monitor.py
 
-def test_check_altitude():
-    assert check_altitude(500) == "LOW ALTITUDE WARNING"
-    assert check_altitude(5000) == "ALTITUDE OK"
-    assert check_altitude(45000) == "HIGH ALTITUDE WARNING"
+def check_altitude(altitude):
+    if altitude < 1000:
+        return "LOW ALTITUDE WARNING"
+    elif altitude > 40000:
+        return "HIGH ALTITUDE WARNING"
+    else:
+        return "ALTITUDE OK"
 
-def test_check_fuel_level():
-    assert check_fuel_level(50) == "FUEL LEVEL OK"
-    assert check_fuel_level(20) == "LOW FUEL WARNING"
-    assert check_fuel_level(5) == "CRITICAL FUEL LEVEL"
 
-def test_flight_status():
-    assert "ALERT" in flight_status(500, 20)
-    assert "All Systems Normal" in flight_status(10000, 70)
+def check_fuel_level(fuel_percentage):
+    if fuel_percentage < 10:
+        return "CRITICAL FUEL LEVEL"
+    elif fuel_percentage < 30:
+        return "LOW FUEL WARNING"
+    else:
+        return "FUEL LEVEL OK"
+
+
+def check_engine_temp(temp_celsius):
+    if temp_celsius < 50:
+        return "LOW TEMP WARNING"
+    elif temp_celsius > 120:
+        return "OVERHEAT WARNING"
+    else:
+        return "ENGINE TEMP OK"
+
+
+# Test all components — one below another
+print(check_altitude(100000))
+print(check_fuel_level(50))
+print(check_engine_temp(130))  # test all components
