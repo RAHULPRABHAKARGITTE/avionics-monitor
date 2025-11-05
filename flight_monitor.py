@@ -1,6 +1,7 @@
+# flight_monitor.py
 
-# Function 1 for Altitued Check
 def check_altitude(altitude):
+  
     if altitude < 1000:
         return "LOW ALTITUDE WARNING"
     elif altitude > 40000:
@@ -8,7 +9,7 @@ def check_altitude(altitude):
     else:
         return "ALTITUDE OK"
 
-# Function 2 for Fule chheck
+
 def check_fuel_level(fuel_percentage):
 
     if fuel_percentage < 10:
@@ -18,24 +19,16 @@ def check_fuel_level(fuel_percentage):
     else:
         return "FUEL LEVEL OK"
 
-#Function 3 to take both value from above two function
 
-
-def flight_status(altitude, fuel):
-    """
-    Now we ill Combine both checks and returns an overall flight status 
-    """
-    alt_status = check_altitude(altitude)
-    fuel_status = check_fuel_level(fuel)
-
-    if "WARNING" in alt_status or "WARNING" in fuel_status or "CRITICAL" in fuel_status:
-        return f"ALERT: {alt_status}, {fuel_status}"
-    else:
-        return f"All Systems Normal: {alt_status}, {fuel_status}"
-
-
-if __name__ == "__main__":
+def check_engine_temp(temp_celsius):
    
-    altitude = 1200     # valus in feet
-    fuel = 25           # valus in percentage
-    print(flight_status(altitude, fuel))
+    if temp_celsius < 50:
+        return "LOW TEMP WARNING"
+    elif temp_celsius > 120:
+        return "OVERHEAT WARNING"
+    else:
+        return "ENGINE TEMP OK"
+
+
+# Test print (you wanted to keep this style)
+print(check_altitude(100000),"\n" +  check_fuel_level(50),"\n" +  check_engine_temp(130))
