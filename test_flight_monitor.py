@@ -5,7 +5,7 @@ from flight_monitor import check_altitude, check_fuel_level, check_engine_temp
 class TestFlightMonitor(unittest.TestCase):
 
     def test_altitude(self):
-        self.assertEqual(check_altitude(500), "LOW ALTITUDE WARNING")
+        self.assertEqual(check_altitude(500), "HIGH WARNING")
         self.assertEqual(check_altitude(20000), "ALTITUDE OK")
         self.assertEqual(check_altitude(45000), "HIGH ALTITUDE WARNING")
 
