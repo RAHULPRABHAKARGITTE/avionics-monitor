@@ -30,5 +30,5 @@ def check_engine_temp(temp_celsius):
         return "ENGINE TEMP OK"
 
 
-# Test print (you wan
+# Test print (y
 print(check_altitude(100000),"\n" +  check_fuel_level(50),"\n" +  check_engine_temp(130))
